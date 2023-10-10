@@ -1,8 +1,5 @@
-// import logo from './logo.svg';
 import './App.css';
 import { FileSystem } from './fileSystem.page';
-
-
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

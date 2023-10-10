@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { ItemRow } from "./item"
 import { FolderSubjects } from "./folderSubjects"
 import { backendFetch } from '../utils/fetchUtils'
-import { DropDownMenu } from '../components/dropdown'
+import { DropDownMenu } from '../utils/dropdown'
 
 import { ChangeName } from './actions/changeName'
 import { DeleteItem } from './actions/deleteItem'

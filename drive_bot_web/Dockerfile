@@ -55,13 +55,13 @@ RUN sed -i 's/\r$//g' /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 
-COPY ./configs/commands/ /commands
+COPY ./docker_configs/commands/ /commands
 RUN sed -i 's/\r$//g' /commands/*
 RUN chmod +x -R /commands
 
-COPY ./configs/confs /configs
+COPY ./docker_configs/confs /docker_configs
 
-#COPY ./configs/uwsgi_fuck /web/uwsgi/
+#COPY ./docker_configs/uwsgi_fuck /web/uwsgi/
 
 #ENV UWSGI_WORKERS 4
 #ENV UWSGI_THREADS 1

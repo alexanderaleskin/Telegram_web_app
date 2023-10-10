@@ -26,7 +26,7 @@ The project has the following folders and items:
 
 1. base - the main directory with all business logic of the bot;
 2. bot_conf - settings for launching Django and Telegram Django Bot bridge;
-3. configs - files for running docker containers;
+3. docker_configs - files for running docker containers;
 4. locale - translation for supporting localization (in this case Russian only, English used by definition);
 5. run_bot.py - this is the file that starts the bot;
 6. common.yml, docker-compose.yml, docker-entrypoint.sh, Dockerfile - files for running docker.

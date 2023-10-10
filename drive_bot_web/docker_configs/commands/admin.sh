@@ -23,5 +23,5 @@ then
     python manage.py runserver 0.0.0.0:80
 else
     python manage.py collectstatic --noinput
-    uwsgi --ini /configs/uwsgi.ini
+    uwsgi --ini /docker_configs/uwsgi.ini
 fi

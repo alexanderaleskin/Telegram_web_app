@@ -22,8 +22,8 @@ services:
     env_file:
       - .env
 
-  web_celery_base:
-    extends:
-      service: web_base
-    environment:
-      C_FORCE_ROOT: 1
+#  web_celery_base:
+#    extends:
+#      service: web_base
+#    environment:
+#      C_FORCE_ROOT: 1
