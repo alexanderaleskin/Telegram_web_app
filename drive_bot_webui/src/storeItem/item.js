@@ -6,9 +6,13 @@ import { Link } from "react-router-dom";
 export const ItemRow = ({ item }) => {
     // const [isSelected, setIsSelected] = useState(false)
 
-    const itemName = item.name ? item.name : item.datetime_change
+    const itemName =
+        item.name ? item.name 
+                  : item.text 
+                  ? item.text
+                  : `Unnamed, 🕐 ${ item.datetime_change.replace('T', ' ') }`
 
-    const { selectedItems, addSelectedItem, dropSelectedItem} = useContext(SelectedItemContext)
+    const { selectedItems, addSelectedItem, dropSelectedItem } = useContext(SelectedItemContext)
     const isSelected = !!selectedItems.find(x => x.id === item.id)
 
     const ChangeSelection = () => {
@@ -17,9 +21,9 @@ export const ItemRow = ({ item }) => {
     }
 
     return (
-        <Link to={`/${item.id}/`} >
+        <Link to={`/${item.id}/`} style={{ maxWidth: "60%" }}>
             {/* <input type="checkbox" value={isSelected} onChange={(e) => {ChangeSelection()}}/> */}
-            { itemName?.length > 20 ? `${itemName.slice(0, 20)}...` : itemName}
+            {itemName?.length > 28 ? `${itemName.slice(0, 28)}...` : itemName}
         </Link>
     )
 }

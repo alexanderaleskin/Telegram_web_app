@@ -37,13 +37,16 @@ async def start(bot: TG_DJ_Bot, update: Update, user: User):
 
         buttons = [
             [InlineKeyboardButton(
-                text='Show storage',
+                text='Open storage',
                 web_app=WebAppInfo(url=f'{settings.FRONTEND_URL}/{self_root_folder.id}/')
             )]
         ]
 
         mess = (
-            "Hi! I could store your files in str"
+            "Hi! This bot stores files and important notes in a usable format. You can group files in folders "
+            "for easy access 🙋 \n"
+            "\n"
+            "Just send file or note to me and I will save it"
         )
         return await bot.send_message(
             chat_id=user.id,

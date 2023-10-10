@@ -9,7 +9,7 @@ export const AppHeader = ({ itemPath }) => {
         <div>
             <div>
                 <SelectedItem />
-                <ActionButton />
+                {/* <ActionButton /> */}
             </div>
             <FolderPath itemPath={itemPath} />
         </div>
@@ -26,31 +26,38 @@ const SelectedItem = () => {
                     ? <span> {selectedAmount} subjects selected
                         <span onClick={() => { DropAllSelectedItems() }}>&times;</span>
                     </span >
-                    : <span> Select Subjects</span>
+                    : <span> <i>You can open, add and change folders. For get file just click on icon: </i></span>
             }
         </>
     )
 }
 
 
-const ActionButton = () => {
-    const { selectedAmount } = useContext(SelectedItemContext)
-    return (
-        <>
-            {(selectedAmount > 0) && <button>  Send </button>}
-        </>
-    )
-}
+// const ActionButton = () => {
+//     const { selectedAmount } = useContext(SelectedItemContext)
+//     return (
+//         <>
+//             {(selectedAmount > 0) && <button>  Send </button>}
+//         </>
+//     )
+// }
 
 
 const FolderPath = ({ itemPath }) => {
 
-    const links = itemPath.map((ascendant, num) => <Link to={ `/${ascendant.id}/`}> {num ? ascendant.name : "Main" }</Link>)
-    
+    const links = itemPath.map((ascendant, num) => <Link to={`/${ascendant.id}/`}>
+        {
+            num == 0 ? "Main" :
+                ascendant.name ? ascendant.name.slice(0, 30) :
+                    ascendant.text ? ascendant.text.name.slice(0, 30) :
+                        "Unnamed"
+        }
+    </Link>)
+
     console.log("links", links)
     return (
-        <div>
-            { links.map(elem => { return <span> {elem} /</span>} )}
+        <div style={{ marginTop: "32px"}}>
+            {links.map(elem => { return <span> {elem} /</span> })}
         </div>
     )
 }

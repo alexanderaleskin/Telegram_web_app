@@ -14,6 +14,7 @@ import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import SendIcon from '@mui/icons-material/Send';
 import ShareIcon from '@mui/icons-material/Share';
 
+
 export const File = ({ file }) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const handleClick = (event) => {
@@ -42,7 +43,7 @@ export const File = ({ file }) => {
                     variant="text"
                     onClick={(e) => { window.Telegram.WebApp.openTelegramLink(`https://t.me/heartfire_bot/?start=${file?.id}`) }}
                 >
-                    <ShareIcon />
+                    <SendIcon />
                 </Button>
             </>
         }>

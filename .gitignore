@@ -4,3 +4,4 @@
 .env
 mount*
 *node_modules*
+*build*
