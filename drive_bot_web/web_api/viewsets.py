@@ -64,7 +64,6 @@ class FolderViewSet(ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def get_path(self, request, *args, **kwargs):
-        print(request.headers, request.__dict__)
 
         item_id = str(request.query_params.get('item_id', ''))
         telegram_user = get_telegram_user(request)

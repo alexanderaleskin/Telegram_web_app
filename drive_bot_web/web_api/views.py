@@ -10,7 +10,7 @@ def send(request):
     telegram_data = get_telegram_data(request)
     telegram_user = json.loads(telegram_data['user'])
 
-    print(request.POST.__dict__)
+
 
     file = FileItem.objects.get(
         user_id=telegram_user['id'],

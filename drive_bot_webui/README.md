@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Telegram Store bot UI
+
+The frontend is written using React. For local development, you need to specify the backend URL in the file:
+
+`src.config.js : serverURL`
+
+The following text is the standard react instruction.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

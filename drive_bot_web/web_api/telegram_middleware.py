@@ -30,7 +30,7 @@ class TelegramMiddleware:
             if result_hash == telegram_hash:
                 is_valid = True
 
-            print(result_hash, telegram_hash, is_valid)
+
 
         if not is_valid:
             return JsonResponse({'error': 'unvalid hash'}, status=400)

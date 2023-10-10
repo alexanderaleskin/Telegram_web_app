@@ -28,7 +28,7 @@ from asgiref.sync import sync_to_async
 @handler_decor()
 async def start(bot: TG_DJ_Bot, update: Update, user: User):
     text = update.message.text
-    print('text', text)
+
     if text == '/start':
         self_root_folder = await sync_to_async(FileItem.objects.filter(
             user_id=user.pk,
@@ -75,7 +75,7 @@ async def create_file_from_message(bot: TG_DJ_Bot, update: Update, user: User):
     )
 
     file_data = get_file_data(update)
-    print(update.to_dict(), file_data)
+
     file_data.update({
         'parent_id': root_folder.pk,
         'type': FileItem.TYPE_FILE,
