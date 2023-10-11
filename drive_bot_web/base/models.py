@@ -1,14 +1,46 @@
-from telegram_django_bot.models import TelegramUser
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from mptt.models import MPTTModel, TreeForeignKey
-from telegram_django_bot.models import MESSAGE_FORMAT
 
 
-class User(TelegramUser):
-    
+class MESSAGE_FORMAT:
+    TEXT = 'T'
+    PHOTO = 'P'
+    DOCUMENT = 'D'
+    AUDIO = 'A'
+    VIDEO = 'V'
+    GIF = 'G'
+    VOICE = 'TV'
+    VIDEO_NOTE = 'VN'
+    STICKER = 'S'
+    LOCATION = 'L'
+    GROUP_MEDIA = 'GM'
+
+    MESSAGE_FORMATS = (
+        (TEXT, _('Text')),
+        (PHOTO, _('Image')),
+        (DOCUMENT, _('Document')),
+        (AUDIO, _('Audio')),
+        (VIDEO, _('Video')),
+        (GIF, _('GIF/animation')),
+        (VOICE, _('Voice')),
+        (VIDEO_NOTE, _('Video note')),
+        (STICKER, _('Sticker')),
+        (LOCATION, _('Location')),
+        (GROUP_MEDIA, _('Media Group')),
+    )
+
+    ALL_FORMATS = (elem[0] for elem in MESSAGE_FORMATS)
+
+
+class User(AbstractUser):
+    id = models.BigIntegerField(primary_key=True)  # telegram id is id for models
+    telegram_username = models.CharField(max_length=64, null=True, blank=True)
+    telegram_language_code = models.CharField(max_length=16, default='en')
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         FileItem.objects.get_or_create(

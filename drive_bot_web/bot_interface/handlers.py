@@ -1,14 +1,10 @@
 import copy
 from uuid import uuid4
 
+import telegram
 from django.conf import settings
-from telegram_django_bot.tg_dj_bot import TG_DJ_Bot
-
-
 from telegram import Update, WebAppInfo
 from .utils import get_file_data, handler_decor, send_file
-
-
 from base.models import MountInstance, ShareLink, User, FileItem
 
 
@@ -26,7 +22,7 @@ from asgiref.sync import sync_to_async
 
 
 @handler_decor()
-async def start(bot: TG_DJ_Bot, update: Update, user: User):
+async def start(bot: telegram.Bot, update: Update, user: User):
     text = update.message.text
 
     if text == '/start':
@@ -68,7 +64,7 @@ async def start(bot: TG_DJ_Bot, update: Update, user: User):
 
 
 @handler_decor()
-async def create_file_from_message(bot: TG_DJ_Bot, update: Update, user: User):
+async def create_file_from_message(bot: telegram.Bot, update: Update, user: User):
     root_folder = await FileItem.objects.aget(
         user_id=user.id,
         parent__isnull=True

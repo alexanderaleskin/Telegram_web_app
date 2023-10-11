@@ -104,6 +104,8 @@ def send_file(bot: telegram.Bot, file, chat_id):
             telegram_func = bot.send_audio(*args, **kwargs)
         elif file_format == MESSAGE_FORMAT.VIDEO:
             telegram_func = bot.send_video(*args, **kwargs)
+        elif file_format == MESSAGE_FORMAT.DOCUMENT:
+            telegram_func = bot.send_document(*args, **kwargs)
         elif file_format == MESSAGE_FORMAT.GIF:
             telegram_func = bot.send_animation(*args, **kwargs)
         elif file_format == MESSAGE_FORMAT.VIDEO_NOTE:

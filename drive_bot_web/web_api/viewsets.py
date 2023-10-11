@@ -1,15 +1,10 @@
-import json
-
 from rest_framework.viewsets import ModelViewSet
 from base.models import FileItem, MountInstance
 from rest_framework import serializers
-from django_filters.rest_framework import FilterSet, NumberFilter
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from urllib import parse
 
 from .utils import get_telegram_user
-
 
 
 class FolderSerializer(serializers.ModelSerializer):
@@ -24,25 +19,6 @@ class FolderSerializer(serializers.ModelSerializer):
 class FolderViewSet(ModelViewSet):
     # permission_classes = [Permission]
     serializer_class = FolderSerializer
-    # queryset = FileItem.objects.all()
-    # filterset_class = FolderFilter
-    # pagination_class = LimitOffsetPagination
-
-
-
-    # def create(self, request, *args, **kwargs):
-    #     from rest_framework import status
-    #     from rest_framework.response import Response
-    #     from rest_framework.settings import api_settings
-    #
-    #     serializer = self.get_serializer(data=request.data)
-    #     print('serializer', request.data, serializer, serializer.is_valid())
-    #
-    #     serializer.is_valid(raise_exception=True)
-    #     self.perform_create(serializer)
-    #     headers = self.get_success_headers(serializer.data)
-    #     return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
 
     def get_queryset(self):
         parent_folder_id = self.request.query_params.get('parent_id')

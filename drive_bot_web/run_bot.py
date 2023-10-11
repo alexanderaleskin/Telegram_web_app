@@ -7,7 +7,6 @@ import os, django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bot_conf.settings')
 django.setup()
 
-from telegram_django_bot.tg_dj_bot import TG_DJ_Bot
 from bot_conf.settings import TELEGRAM_TOKEN, TELEGRAM_LOG, DEBUG
 import logging
 

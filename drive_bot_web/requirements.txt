@@ -1,6 +1,5 @@
 APScheduler==3.6.3
 billiard==3.6.4.0
-celery==5.2.3
 Django==4.2
 django-admin-list-filter-dropdown==1.0.2
 django-celery-results==2.2.0
@@ -14,8 +13,5 @@ ipython==8.8.0
 kombu==5.2.3
 uwsgi==2.0.20
 psycopg2-binary==2.9.3
-redis==3.3.11
 python-telegram-bot==20.6
-telegram_django_bot==1.1.0
 djangorestframework==3.14
-django-filter==23.3

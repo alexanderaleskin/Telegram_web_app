@@ -8,7 +8,6 @@ from django.db import migrations, models
 import django.db.models.deletion
 import django.utils.timezone
 import mptt.fields
-import telegram_django_bot.models
 
 
 class Migration(migrations.Migration):
@@ -34,14 +33,8 @@ class Migration(migrations.Migration):
                 ('is_active', models.BooleanField(default=True, help_text='Designates whether this user should be treated as active. Unselect this instead of deleting accounts.', verbose_name='active')),
                 ('date_joined', models.DateTimeField(default=django.utils.timezone.now, verbose_name='date joined')),
                 ('id', models.BigIntegerField(primary_key=True, serialize=False)),
-                ('seed_code', models.IntegerField(default=telegram_django_bot.models._seed_code)),
                 ('telegram_username', models.CharField(blank=True, max_length=64, null=True)),
                 ('telegram_language_code', models.CharField(default='en', max_length=16)),
-                ('timezone', models.DurationField(default=datetime.timedelta(seconds=10800))),
-                ('current_utrl', models.CharField(blank=True, default='', max_length=64)),
-                ('current_utrl_code_dttm', models.DateTimeField(blank=True, null=True)),
-                ('current_utrl_context_db', models.CharField(blank=True, default='{}', max_length=4096)),
-                ('current_utrl_form_db', models.CharField(blank=True, default='{}', max_length=4096)),
                 ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
                 ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),
             ],

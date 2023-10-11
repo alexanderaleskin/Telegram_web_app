@@ -37,11 +37,9 @@ INSTALLED_APPS = [
     # 'rangefilter',
     'django_celery_beat',
     'django_json_widget',
-    'telegram_django_bot',
     'base',
     'web_api',
     'rest_framework',
-    'django_filters',
     'corsheaders',
 ]
 
@@ -194,7 +192,7 @@ TELEGRAM_BOT_MAIN_MENU_CALLBACK = 'main_menu'  # usually you need return button 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+    # 'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
     'DEFAULT_PERMISSION_CLASSES': [
         # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
         'rest_framework.permissions.AllowAny'
