@@ -37,7 +37,7 @@ export function DeleteItem({ item, closeDropDown, setFolderSubjects }) {
       )
       
       // todo: need to reload page
-      
+      request.then(res => res.ok ? window.location.reload(false): null)
 
     closeDropDown()
     setOpen(false);
@@ -46,7 +46,7 @@ export function DeleteItem({ item, closeDropDown, setFolderSubjects }) {
   return (
     <>
       <span onClick={handleClickOpen}>
-      <ListItemIcon><DeleteForeverIcon /></ListItemIcon> Delete
+      <ListItemIcon><DeleteForeverIcon /></ListItemIcon> &#8203;Delete
       </span>
       
       

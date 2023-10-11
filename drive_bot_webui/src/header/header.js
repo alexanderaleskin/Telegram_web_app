@@ -49,7 +49,7 @@ const FolderPath = ({ itemPath }) => {
         {
             num == 0 ? "Main" :
                 ascendant.name ? ascendant.name.slice(0, 30) :
-                    ascendant.text ? ascendant.text.name.slice(0, 30) :
+                    ascendant.text ? ascendant.text.slice(0, 30) :
                         "Unnamed"
         }
     </Link>)

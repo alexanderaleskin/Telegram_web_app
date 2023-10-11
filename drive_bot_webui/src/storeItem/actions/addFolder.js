@@ -60,7 +60,7 @@ export function AddFolder({ folder, setFolderSubjects, closeDropDown }) {
   return (
     <>
       <span onClick={handleClickOpen}>
-        <ListItemIcon><CreateNewFolderIcon /></ListItemIcon> Add
+        <ListItemIcon><CreateNewFolderIcon /></ListItemIcon> &#8203;Add
       </span>
 
 

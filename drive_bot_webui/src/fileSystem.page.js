@@ -41,7 +41,7 @@ export const FileSystem = () => {
                     .then(result => result.ok ? result.json() : {})
             }
 
-            if ((currentRootItem == null || currentRootItem.id != itemId)) {
+            if ((currentRootItem == null || (currentRootItem.id != itemId && itemId != null))) {
                 console.log('itemId', itemId)
                 setcurrentPath(await getItemPath(itemId))
             }

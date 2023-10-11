@@ -20,3 +20,10 @@ The section has the following folders and items:
 5. run_bot.py - this is the file that starts the bot;
 6. common.yml, docker-compose.yml, docker-entrypoint.sh, Dockerfile - files for running docker.
 
+## run on server
+
+Docker compose files can be used for deployment on a server by specifying additional 
+variables in .env file (as in the example). This approach is not recommended for non-pet projects.
+
+To deploy on a server, you also need a web server to serve static content (front-end part)
+and proxy requests to the backend. You can use Nginx for these purposes.

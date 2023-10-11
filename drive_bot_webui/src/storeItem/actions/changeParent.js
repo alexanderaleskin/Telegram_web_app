@@ -42,7 +42,7 @@ export function ChangeParent({ item, closeDropDown, setFolderSubjects }) {
 
     fetchFolderSubjects()
     return () => { ignore = true }
-  }, [folders])
+  }, [])
 
 
   const handleChange = () => {
@@ -62,7 +62,7 @@ export function ChangeParent({ item, closeDropDown, setFolderSubjects }) {
       )
 
       // todo: need to reload page
-
+      request.then(res => res.ok ? window.location.reload(false): null)
     }
 
     closeDropDown()
@@ -76,7 +76,7 @@ export function ChangeParent({ item, closeDropDown, setFolderSubjects }) {
   return (
     <>
       <span onClick={handleClickOpen}>
-        <ListItemIcon><DriveFileMoveIcon /></ListItemIcon> Change path
+        <ListItemIcon><DriveFileMoveIcon /></ListItemIcon> &#8203;Change path
       </span>
 
 

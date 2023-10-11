@@ -8,12 +8,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import { backendFetch } from '../../utils/fetchUtils'
 
 
-export function ChangeName({ item, closeDropDown, setFolderSubjects }) {
+export function ChangeName({ item, closeDropDown }) {
   const [open, setOpen] = useState(false);
   const [itemName, setItemName] = useState('');
 
   const handleClickOpen = () => {
-    
+
     setOpen(true)
   };
 
@@ -38,15 +38,10 @@ export function ChangeName({ item, closeDropDown, setFolderSubjects }) {
           }
 
         }
-      )      
-      
-      if (setFolderSubjects){
-        request.then(response => response.ok ? response.json() : null)
-        .then(folder => folder ? setFolderSubjects(
-          subs => subs.filter() ? subs.filter(sub => sub.id == item.id ? {...sub, name: itemName}: sub) : []
-        ) : null)
-      }
-      
+      )
+      request.then(res => res.ok ? window.location.reload(false) : null)
+
+
     }
 
     closeDropDown()
@@ -60,10 +55,10 @@ export function ChangeName({ item, closeDropDown, setFolderSubjects }) {
   return (
     <>
       <span onClick={handleClickOpen}>
-        <ListItemIcon><EditIcon /></ListItemIcon> Change name
+        <ListItemIcon><EditIcon /></ListItemIcon> &#8203;Change name
       </span>
-      
-      
+
+
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Change name</DialogTitle>
         <DialogContent>

@@ -1,8 +1,13 @@
 # Telegram Store bot UI
 
-The frontend is written using React. For local development, you need to specify the backend URL in the file:
+The frontend is written using React. For local development, you need to specify next variables in `src.config.js`:
 
-`src.config.js : serverURL`
+1. `serverURL`  - url for backend server
+2. `telegramBotUsername` - Bot username 
+
+
+Don't forget to change these variables to production one when you build the project.
+
 
 The following text is the standard react instruction.
 

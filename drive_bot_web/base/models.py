@@ -43,6 +43,8 @@ class FileItem(MPTTModel):
     )
     name = models.CharField(
         max_length=256,
+        default='',
+        blank=True,
     )
     type = models.CharField(
         max_length=6,

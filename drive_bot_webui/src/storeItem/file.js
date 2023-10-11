@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { ItemRow } from "./item"
-import { FolderSubjects } from "./folderSubjects"
-import { backendFetch } from '../utils/fetchUtils'
 import { DropDownMenu } from '../utils/dropdown'
 
 import { ChangeName } from './actions/changeName'
@@ -12,7 +10,9 @@ import { Button, MenuItem, ListItem, ListItemIcon, Collapse } from "@mui/materia
 
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import SendIcon from '@mui/icons-material/Send';
-import ShareIcon from '@mui/icons-material/Share';
+import { telegramBotUsername } from "../config"
+// import ShareIcon from '@mui/icons-material/Share';
+
 
 
 export const File = ({ file }) => {
@@ -41,7 +41,7 @@ export const File = ({ file }) => {
 
                 <Button
                     variant="text"
-                    onClick={(e) => { window.Telegram.WebApp.openTelegramLink(`https://t.me/heartfire_bot/?start=${file?.id}`) }}
+                    onClick={(e) => { window.Telegram.WebApp.openTelegramLink(`https://t.me/${telegramBotUsername}/?start=${file?.id}`) }}
                 >
                     <SendIcon />
                 </Button>
